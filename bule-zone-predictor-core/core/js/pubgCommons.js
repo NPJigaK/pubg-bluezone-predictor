@@ -7,31 +7,38 @@ const CURRENT_TIME_KEY = "currentTime";
 const PUBG_MAPS = defineEnum({
   MIRAMAR: {
     original: "Desert_Main",
-    name: "Miramar"
+    name: "Miramar",
+    mapSize: 8192
   },
   CLASSIC_ERANGEL: {
     original: "Erangel_Main",
-    name: "Erangel(classic)"
+    name: "Erangel(classic)",
+    mapSize: 8192
   },
   SANHOK: {
     original: "Savage_Main",
-    name: "Sanhok"
+    name: "Sanhok",
+    mapSize: 4096
   },
   CAMP_JACKAL: {
     original: "Range_Main",
-    name: "Camp Jackal"
+    name: "Camp Jackal",
+    mapSize: 0
   },
   VIKENDI: {
     original: "DihorOtok_Main",
-    name: "Vikendi"
+    name: "Vikendi",
+    mapSize: 6144
   },
   ERANGEL: {
     original: "Baltic_Main",
-    name: "Erangel"
+    name: "Erangel",
+    mapSize: 8192
   },
   KARAKIN: {
     original: "Summerland_Main",
-    name: "Karakin"
+    name: "Karakin",
+    mapSize: 2048
   }
 });
 
