@@ -16,7 +16,7 @@ async function selectMatchToJson(createdAt, mapName, matchType, telemetryURL) {
   );
   let telemetryJson = await telemetryResponse.json();
 
-  let flightPath = await getFlightPaths(telemetryJson);
+  let flightPath = await getFlightPaths(telemetryJson, mapName);
 
   let gameStates = await getGameStates(telemetryJson);
 
@@ -55,11 +55,16 @@ async function getGameStates(telemetryJson) {
   return gameStates;
 }
 
-async function getFlightPaths(telemetryJson) {
+async function getFlightPaths(telemetryJson, mapName) {
   let flightPaths = [];
+
+  const mapSize = PUBG_MAPS.getByValue("name", mapName).mapSize
+  const flightPathMargin = mapSize / 10;
+
   await telemetryJson.filter(function(value, index) {
     if (value.vehicle &&value.character &&value.common.isGame >= 0.1 &&value.vehicle.vehicleType == "TransportAircraft") {
-      if (calcWithinRange(value.character.location.x / 100) &&calcWithinRange(value.character.location.y / 100)) {
+      if (calcWithinRange((value.character.location.x / 100), (mapSize - flightPathMargin), flightPathMargin) 
+          && calcWithinRange((value.character.location.y / 100), (mapSize - flightPathMargin), flightPathMargin)) {
         flightPaths.push({
           x: value.character.location.x / 100,
           y: value.character.location.y / 100
@@ -67,9 +72,12 @@ async function getFlightPaths(telemetryJson) {
       }
     }
   });
+
   return calcfirstAndEndFlightPathJson(
     flightPaths[0],
-    flightPaths[flightPaths.length - 1]
+    flightPaths[flightPaths.length - 1],
+    mapSize,
+    flightPathMargin
   );
 }
 /**
@@ -79,63 +87,62 @@ async function getFlightPaths(telemetryJson) {
  * @param {*} firstLocation 
  * @param {*} lastLocation 
  */
-function calcfirstAndEndFlightPathJson(firstLocation, lastLocation) {
+function calcfirstAndEndFlightPathJson(firstLocation, lastLocation, mapSize, flightPathMargin) {
   const ax = firstLocation.x;
   const ay = firstLocation.y;
   const bx = lastLocation.x;
   const by = lastLocation.y;
 
-  const cx = ((bx - ax) / (by - ay)) * (0 - ay) + ax;
-  const dx = ((bx - ax) / (by - ay)) * (8192 - ay) + ax;
+  const cx = ((bx - ax) / (by - ay)) * (flightPathMargin - ay) + ax;
+  const dx = ((bx - ax) / (by - ay)) * ((mapSize - flightPathMargin) - ay) + ax;
 
-  const cy = ((by - ay) / (bx - ax)) * (0 - ax) + ay;
-  const dy = ((by - ay) / (bx - ax)) * (8192 - ax) + ay;
+  const cy = ((by - ay) / (bx - ax)) * (flightPathMargin - ax) + ay;
+  const dy = ((by - ay) / (bx - ax)) * ((mapSize - flightPathMargin) - ax) + ay;
 
   let flightPathJson = { first: {}, last: {} };
 
-  if(calcWithinRange(cx)){
+  if(calcWithinRange(cx, (mapSize - flightPathMargin), flightPathMargin)){
     if(Math.abs(cx - ax) < Math.abs(cx - bx)){
       flightPathJson.first.x = cx;
-      flightPathJson.first.y = 0;
+      flightPathJson.first.y = flightPathMargin;
     }else{
       flightPathJson.last.x = cx;
-      flightPathJson.last.y = 0;
+      flightPathJson.last.y = flightPathMargin;
     }
   }
-  if(calcWithinRange(cy)){
+  if(calcWithinRange(cy, (mapSize - flightPathMargin), flightPathMargin)){
     if(Math.abs(cy - ay) < Math.abs(cy - by)){
       flightPathJson.first.y = cy;
-      flightPathJson.first.x = 0;
+      flightPathJson.first.x = flightPathMargin;
     }else{
       flightPathJson.last.y = cy;
-      flightPathJson.last.x = 0;
+      flightPathJson.last.x = flightPathMargin;
     }
   }
-  if(calcWithinRange(dx)){
+  if(calcWithinRange(dx, (mapSize - flightPathMargin), flightPathMargin)){
     if(Math.abs(dx - ax) < Math.abs(dx - bx)){
       flightPathJson.first.x = dx;
-      flightPathJson.first.y = 8192;
+      flightPathJson.first.y = mapSize - flightPathMargin;
     }else{
-      console.log("last x:" + dx)
       flightPathJson.last.x = dx;
-      flightPathJson.last.y = 8192;
+      flightPathJson.last.y = mapSize - flightPathMargin;
     }
   }
-  if(calcWithinRange(dy)){
+  if(calcWithinRange(dy, (mapSize - flightPathMargin), flightPathMargin)){
     if(Math.abs(dy - ay) < Math.abs(dy - by)){
       flightPathJson.first.y = dy;
-      flightPathJson.first.x = 8192;
+      flightPathJson.first.x = mapSize - flightPathMargin;
     }else{
       flightPathJson.last.y = dy;
-      flightPathJson.last.x = 8192;
+      flightPathJson.last.x = mapSize - flightPathMargin;
     }
   }
 
   return flightPathJson;
 }
 
-function calcWithinRange(num) {
-  if (0 <= num && num <= 8192) {
+function calcWithinRange(num, upper, lower) {
+  if (lower <= num && num <= upper) {
     return true;
   }
   return false;
