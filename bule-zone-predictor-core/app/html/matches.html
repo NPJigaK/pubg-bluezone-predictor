@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <style type="text/css">
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <script type="text/javascript" src="../../core/js/matches.js"></script>
+    <script type="text/javascript" src="../../core/js/util.js"></script>
+    <script type="text/javascript" src="../../core/js/pubgCommons.js"></script>
+    <link rel="stylesheet" href="../../core/css/matches.css">
+    <link rel="stylesheet" href="../../core/css/main.css">
+
+
+    <script src="https://unpkg.com/konva@4.1.5/konva.min.js"></script>
+
+    <title>pubg bule zone predictor</title>
+</head>
+
+<body>
+    <div class="root">
+        <div class="index">
+            <div class="page">
+                <div class="header">
+                    <!--None for now. Future support.-->
+                </div>
+                <div class="main">
+                    <div class="search">
+                        <div class="matches">
+                            <table id="Matches">
+                                <tbody>
+                                    <tr>
+                                        <th colspan="7">Matches</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="side">
+                        <textarea class="selectMatches" id="selectMatchesJson" placeholder="JSON for selected matches."
+                            oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" onclick="copyTextArea(this)"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        window.onload = async function () {
+
+            const region = getParam("region");
+            const playerNeme = getParam("search");
+            const apiKey = getRandomApiKey(JSON.parse(window.localStorage.getItem(API_KEY_LIST_KEY)));
+
+            let playersResponse = await fetch(`https://api.pubg.com/shards/${region}/players?filter[playerNames]=${playerNeme}`, {
+                headers: {
+                    'accept': 'application/json',
+                    'Authorization': `Bearer ${apiKey.APIKEY_KEY}`
+                }
+            }, { mode: 'cors' });
+
+            let matches = await getMatches(await playersResponse.json());
+
+            let detailMatches = await asyncFilter(
+                await asyncMap(matches, async id => {
+                    const response = await fetch(`https://api.pubg.com/shards/steam/matches/${id}`,
+                        { headers: { 'accept': 'application/json' } },
+                        { mode: 'cors' }
+                    );
+                    return await response.json();
+                }), async detailMatch => {
+                    if (detailMatch.data.attributes.matchType != "arcade"
+                        && detailMatch.data.attributes.matchType != "training"
+                        && detailMatch.data.attributes.mapName != "Range_Main") {
+                        return detailMatch;
+                    }
+                });
+
+            console.log(detailMatches)
+
+            let table = document.getElementById("Matches");
+            detailMatches.map(async (value) => {
+                let winPlace;
+                let kills;
+                let telemetryURL;
+                await value.included.filter(await function (value, index) {
+                    if (value.type === "participant" && value.attributes.stats.name === playerNeme) {
+                        winPlace = value.attributes.stats.winPlace;
+                        kills = value.attributes.stats.kills;
+                    }
+                    if (value.type == "asset") {
+                        telemetryURL = value.attributes.URL;
+                    }
+                });
+
+                await insertRow(
+                    table,
+                    value.data.attributes.createdAt,
+                    value.data.attributes.mapName,
+                    value.data.attributes.gameMode,
+                    winPlace,
+                    kills,
+                    telemetryURL);
+            })
+        };
+    </script>
+</body>
+
+</html>
