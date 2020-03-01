@@ -1,7 +1,7 @@
 pubg-bulezone-predictor
 ====
 
-本ツールは PLAYERUNKNOWN'S BATTLEGROUNDS の安置予測を練習することを目的として作られたWebアプリケーションです。
+本ツールは PLAYERUNKNOWN'S BATTLEGROUNDS の安置予測を練習することを目的として作られた、PC向けWebアプリケーションです。
 
 [こちら](https://kagijpn.github.io/pubg-bulezone-predictor/top.html)
 から本ツールを利用することが出来ます。
@@ -39,7 +39,9 @@ pubg-bulezone-predictor
 #### APIKEYの発行方法
 [PUBG Developer Portal](https://developer.pubg.com/)で API Key を取得します。
 
- **GET YOUR OWN API KEY**というところを押して、言われた通りに進めていき、会員登録(無料)をします。最終的に、下記のようなページにいくので、**API KEY** と書かれているところの文字列をコピーしておいてください。 
+ **GET YOUR OWN API KEY**というところを押して、言われた通りに進めていき、会員登録(無料)をします。(英語のサイトですが、そこまで難しい操作はありません)
+ 
+ 最終的に、下記のようなページにいくので、**API KEY** と書かれているところの文字列をコピーしておいてください。 
 
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
 
@@ -104,7 +106,7 @@ json データですが、生成されたものを足し合わせて一つのフ
 ```
 のような形になるように、自身で整形を行ってください。
 
-つまり、一度データを保存しておけば、月日が経つににつれて、どんどん試合データが増えていくということになります。
+つまり、一度データを保存しておけば、月日が経つににつれて、どんどん試合データが増えていくということになります。もちろん、期間やマップによってファイルを分けるというこうとも出来ます。
 
 ※一番最後に **,** (カンマ)があると json として正しい形式ならないので注意してください。
 
@@ -112,16 +114,42 @@ json データですが、生成されたものを足し合わせて一つのフ
 
 ## 安置読み練習ツールの利用方法
 
-1. 
+1. まず始めに、試合データの読み込みを行います。
 
-![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/feature/add_readme/docs/resource/img/pubg-predictor1.JPG)
+**LOAD**を押すとファイルを選択することが出来ます。json 形式の試合データを読み込んでください。
 
+2. 試合一覧から安置読みをしたいマッチを選択します。
 
-![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/feature/add_readme/docs/resource/img/pubg-predictor2.JPG)
+下記の画像のように、左側に試合一覧が表示されます。
+緑色のリンクを押すと、右側にマップが表示されます。
+
+![pubg-predictor1](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/master/docs/resource/img/pubg-predictor1.JPG)
+
+3. 安置予測の練習をする。
+
+最初に表示される赤い円をクリックして、ドラッグ&ドロップをすると、円を動かすことが出来ます。「次の安置はここだ」って思ったところに赤い円を配置したら、画面上の矢印(⇒)を押してください。
+
+画面上に表示されている表の **Current** は現在選択している試合の予測と実際の円の一致した割合が表示されます。
+
+ **Total** は各試合の予測と実際の円の一致した割合の平均が表示されます。
+
+ 最後のフェーズまでいったら、赤い円(予測円)は表示されなくなります。
+ そうしたら次の試合(緑色のリンク)を選択してください。
+
+![pubg-predictor2](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/master/docs/resource/img/pubg-predictor2.JPG)
+
+### tips
+- 最終安置までやらなくても、別の試合に切り替えることは可能です。
+- 左側のリストの **Date** や **Map** をクリックすると、昇順・降順に並べ替えることが出来ます。
 
 ## さいごに
-本ツールは、Github Pages を使い、外部依存のフレームワークも使っていないため pure で 
-ecology で fabulous なものとなっています。
+分かりづらい説明も多々あると思います。
+なにか分からないことがありましたら、私のTwitterまでお気軽にご連絡ください！
 
 改善案や提案などは、随時受け付けております。
 より良いツールにアップデートするためにも、ぜひともご協力のほどよろしくお願い申し上げます。
+
+ちなみに、[こちら](https://github.com/KagiJPN/pubg-bulezone-predictor/issues)に今後の アップデート・修正情報 をまとめています。
+
+本ツールは、Github Pages を使い、外部依存のフレームワークも使っていないため pure で 
+ecology で fabulous なものとなっています。
