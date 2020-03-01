@@ -8,6 +8,10 @@ textarea {
   margin: 0; /* 3 */
 }
 
+input {
+  line-height: normal;
+}
+
 ul {
   list-style: circle inside;
 }
@@ -45,55 +49,52 @@ body {
   justify-self: center;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 1fr 200px;
   grid-row: 1 / auto;
   grid-column-gap: 15px;
+}
+
+.menu {
+  align-self: center;
+  justify-self: end;
+}
+
+.menu a {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  margin-left: 15px;
+  grid-column: 2 / auto;
+}
+
+.menuButton {
+  display: inline;
+  font-size: 1rem;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  padding: 0px;
 }
 
 .main {
   grid-row: 2 / auto;
 }
 
-.search {
+.addJson {
+  display: none;
+}
+
+.load {
   text-align: center;
 }
 
-.searchForm {
+.loadForm {
   margin: 7rem 0px 3rem;
 }
 
-.searchRegion {
-  line-height: 3.6rem;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 10px;
-  position: relative;
-  box-sizing: border-box;
-  top: -2px;
-  text-decoration: none;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(209, 209, 209);
-  border-image: initial;
-  border-radius: 4px;
-  padding: 0px 1rem;
-}
-
-.searchRegionArrow {
-  width: 0px;
-  height: 0px;
-  margin-bottom: 1px;
-  margin-left: 3px;
-  display: inline-block;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 5px solid rgb(150, 150, 150);
-}
-
-.searchInput {
+.loadInput {
   width: 34rem;
   border-bottom: 1px solid rgba(79, 54, 203, 0.6);
   border-radius: 0px;
@@ -102,17 +103,26 @@ body {
   border-right: 0px;
 }
 
-.searchButton {
+.loadButton {
   line-height: 39px;
   margin-left: 10px;
 }
 
-.apiKeys {
-  text-align: center;
-  grid-column: 1 / auto;
+.predictorContainer {
+  display: grid;
+  font-size: 1.2rem;
+  grid-template-columns: 1fr 800px; /*list, map*/
+  /*ToDO max-width: calc(100vh + 10px);*/ 
+  grid-column-gap: 10px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: rgb(238, 238, 238);
+  border-image: initial;
+  overflow: visible;
+  margin: 0px auto;
 }
 
-.apiKeys table {
+.predictorContainer table {
   margin: 0px auto;
   border-collapse: collapse;
   border-spacing: 0;
@@ -120,13 +130,65 @@ body {
   border-color: grey;
 }
 
-.apiKeys th {
+.predictorContainer th {
   text-align: center;
   padding: 15px 15px 0px;
 }
 
-.apiKeys td:nth-child(2) {
-  max-width: 400px;
-  white-space:nowrap;
-  overflow-x:scroll;
+.matchTable {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 824px;
+  padding-right: 10px;
+}
+
+.mapBar {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  margin-bottom: 10px;
+}
+
+.test4 {
+  position: relative;
+  margin-right: 10px;
+  grid-column: 2 / auto;
+}
+
+.test4 table{
+  text-align:left;
+  margin: 0;
+}
+
+.test4 td{
+  padding: 0px 8px;
+  text-align: left
+}
+
+.test4 th{
+  padding: 0px 8px;
+  text-align: left
+}
+
+.test4 th:nth-child(1){
+  width: 60px;
+}
+
+.mapMain {
+  position: relative;
+}
+
+.execute {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  color: rgb(0, 0, 0);
+  margin: 0px;
+  padding: 0px 0px 0px 1px;
+  visibility:hidden
+}
+
+.trigger {
+  color: #4cbb89;
+  text-decoration: none;
+  cursor: pointer;
 }

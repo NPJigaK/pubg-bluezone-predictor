@@ -1,111 +1,95 @@
-const MATCH_LIST_PAGE_URL = "aaa.html";
-const API_KEY_LIST = "API_KEY_LIST";
-const APIKEY_KEY = "API_KEY";
-const CURRENT_TIME_KEY = "CURRENT_TIME_KEY";
+window.addEventListener("DOMContentLoaded", function() {
+  // add Event Listener
+  document.getElementById("file_upload").addEventListener("change",
+    async function(e) {
+      // Can use File API?
+      if (window.File) {
+        try {
+          let inputJson = document.getElementById("file_upload").files[0];
+          document.getElementById("LoadInput").value = inputJson.name;
 
-/*click event
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-function clickSearchButton() {
-  if (document.searchform.search.value == "" || document.searchform.region.value == "") {
-    alert("The PUBG NAME with nothing plugged in yet.");
-  } else {
-    document.searchform.action = MATCH_LIST_PAGE_URL;
-    document.searchform.submit();
-  }
-}
+          readMatchJson(inputJson);
+        } catch (error) {
+          // Failed to load JSON.
 
-async function clickAddApiKeyButton() {
-  let newApiKey = await document.getElementById("ApiKeyInput").value.trim();
-  // Check characters briefly.
-  if (newApiKey == "" || !~newApiKey.indexOf(".")) {
-    alert("API key is invalid character.");
-    return;
-  }
+          alert("Failed to load JSON.");
 
-  // Check if key already exists.
-  let table = await document.getElementById("ApiKeys");
-  let currentTime = await GetCurrentTime(new Date());
-  if (checkAlreadyKey(table, newApiKey)) {
-    // Insert row
-    insertRow(table, newApiKey, currentTime);
+          removeAllMatches();
+        }
+      }
+    },
+    true
+  );
+});
 
-    // Added to apiKeyList in apikey
-    let apiKeyList = JSON.parse(window.localStorage.getItem(API_KEY_LIST));
-    console.log(apiKeyList);
-    apiKeyList.push({ APIKEY_KEY: newApiKey, CURRENT_TIME_KEY: currentTime });
-    window.localStorage.setItem(API_KEY_LIST, JSON.stringify(apiKeyList));
+async function readMatchJson(inputJson) {
+  let reader = new FileReader();
 
-    // Reset value
-    document.getElementById("ApiKeyInput").value = "";
-  } else {
-    alert("API key already exists.");
-  }
-}
+  // add Load Event Listener.
+  reader.addEventListener("load", () => {
+    try {
+      let matchJsons = JSON.parse(reader.result);
 
-function clickDeleteApiKeyButton(obj) {
-  // Delete row
-  deleteRow(obj);
+      for (var i = 0; i < matchJsons.length; i++) {
+        insertRow(
+          matchJsons[i].createdAt,
+          matchJsons[i].mapName,
+          matchJsons[i].matchType,
+          matchJsons[i].flightPath,
+          matchJsons[i].gameStates
+        );
+      }
 
-  // Removed apiKeyList in apikey
-  let apiKeyList = JSON.parse(window.localStorage.getItem(API_KEY_LIST));
-  for (let i = 0; i < apiKeyList.length; i++) {
-    if (tr.cells[1].innerText == apiKeyList[i].APIKEY_KEY) {
-      apiKeyList.splice(i, 1);
+      // Reload matchesList for List.js.
+      matchesList.reIndex();
+    } catch (error) {
+      // JSON is invalid format.
+      console.log(error)
+      alert("JSON is invalid format.");
+
+      removeAllMatches();
     }
-  }
-  window.localStorage.setItem(API_KEY_LIST, JSON.stringify(apiKeyList));
-}
+  });
+  // reset list
+  await removeAllMatches();
 
-/*check
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-function checkAlreadyKey(table, newApiKey) {
-  for (let i = 1; i < table.rows.length; i++) {
-    if (newApiKey == table.rows[i].cells[1].innerText) {
-      console.log(newApiKey);
-      console.log(table.rows[i].cells[1].innerText);
-      return false;
-    }
-  }
-  console.log(newApiKey);
-  console.log(table.rows);
-  return true;
+  // start reading as Text.
+  reader.readAsText(inputJson);
 }
 
 /*table
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-function insertRow(table, newApiKey, currentTime) {
+function insertRow(createdAt, mapName, matchType, flightPath, gameStates) {
   // Insert row at end of line
-  let row = table.insertRow(-1);
+  let row = document.getElementById("matchesBody").insertRow(-1);
   // Insert cell
   let cell1 = row.insertCell(-1);
   let cell2 = row.insertCell(-1);
   let cell3 = row.insertCell(-1);
-  // Button HTML
-  var BUTTON_HTML =
-    '<input class="searchButton" type="button" value="DELETE" onclick="clickDeleteApiKeyButton(this)" />';
+  let cell4 = row.insertCell(-1);
+  let cell5 = row.insertCell(-1);
+  cell4.style.display = "none";
+  cell5.style.display = "none";
+
+  // add class for List.js
+  cell1.classList.add("createdAt");
+  cell2.classList.add("mapName");
+  cell3.classList.add("matchType");
 
   // Enter cell contents
-  cell1.innerHTML = currentTime;
-  cell2.innerHTML = newApiKey;
-  cell3.innerHTML = BUTTON_HTML;
+  cell1.innerHTML = `<span class="trigger" onclick="clickMatchLoading(this)">${createdAt}</span>`
+  cell2.innerHTML = mapName;
+  cell3.innerHTML = matchType;
+  cell4.innerHTML = JSON.stringify(flightPath);
+  cell5.innerHTML = JSON.stringify(gameStates);
 }
 
-function deleteRow(obj) {
-  // Get the row where the delete button was pressed
-  tr = obj.parentNode.parentNode;
-  // Get tr index and delete rows
-  tr.parentNode.deleteRow(tr.sectionRowIndex);
-}
-
-/*other 
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-function GetCurrentTime(date) {
-  return `${(date.getMonth() + 1)}` + '/'
-  +`${date.getDate()}`+ ' '
-  +`${getdoubleDigestNumer(date.getHours())}` + ':'
-  +`${getdoubleDigestNumer(date.getMinutes())}`;
-}
-
-function getdoubleDigestNumer(number) {
-  return ("0" + number).slice(-2);
+async function removeAllMatches() {
+  let matchesBody = document.getElementById("matchesBody");
+  while (matchesBody.rows[0]) {
+    // remove list for html.
+    await matchesBody.deleteRow(0);
+  }
+  // remove all Listjs list.
+  matchesList.clear();
 }
