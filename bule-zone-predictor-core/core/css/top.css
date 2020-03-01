@@ -161,7 +161,8 @@ body {
 
 .test4 td{
   padding: 0px 8px;
-  text-align: left
+  text-align: left;
+  width: 30px;
 }
 
 .test4 th{
