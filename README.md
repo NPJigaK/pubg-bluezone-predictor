@@ -20,7 +20,9 @@ pubg-bulezone-predictor
 
 [こちら](https://github.com/KagiJPN/pubg-bulezone-predictor/tree/master/bule-zone-predictor-core/app/resource)のページに飛ぶと、_〇〇.json_ をいう名前のリンクがあると思います。
 
-そのリンクにカーソルを合わせて右クリックをして、名前を付けて保存をして頂くと　_〇〇.json_　という形式でファイルを保存することができます。
+そのリンクを押下すると少し下のほうに試合データが表示され、**Raw**, **Blame**, **History** とボタンが並んでいると思います。
+
+その内の**Raw**にカーソルを合わせて右クリックをして、名前を付けて保存をして頂くと　_〇〇.json_　という形式でファイルを保存することができます。
 
 その json ファイルを[トップページ](https://kagijpn.github.io/pubg-bulezone-predictor/top.html)で読み込ませることで、ツールを利用することが出来ます。
 
