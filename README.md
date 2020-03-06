@@ -148,15 +148,16 @@ json データですが、生成されたものを足し合わせて一つのフ
 
 ## さいごに
 分かりづらい説明も多々あると思います。
-なにか分からないことがありましたら、私のTwitterまでお気軽にご連絡ください！
+なにか分からないことがありましたら、私の [Twitter](https://twitter.com/KagiJPN) 又は、[私のディスコード](https://discord.gg/dUtTkB7)までお気軽にご連絡ください！
 
 改善案や提案などは、随時受け付けております。
 より良いツールにアップデートするためにも、ぜひともご協力のほどよろしくお願い申し上げます。
 
-ちなみに、[こちら](https://github.com/KagiJPN/pubg-bulezone-predictor/issues)に今後の アップデート・修正情報 をまとめています。
-
-本ツールは、Github Pages を使い、外部依存のフレームワークも使っていないため pure で 
-ecology で fabulous なものとなっています。
+[こちら](https://github.com/KagiJPN/pubg-bulezone-predictor/issues)に今後の アップデート・修正情報 をまとめています。
+アップデートした内容は、[ディスコードサーバー](https://discord.gg/dUtTkB7) にて通知していく予定です。
 
 最後に、Web開発の協力者も募集してます！
 私はWeb開発は趣味でしか行ったことが無いので、あまり得意ではありません。もし興味ある方がいたら是非一緒になにか作りましょう！
+
+- 本ツールは、Github Pages を使い、外部依存のフレームワークも使っていないため pure で 
+ecology で fabulous なものとなっています。-
