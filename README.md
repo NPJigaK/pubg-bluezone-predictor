@@ -47,6 +47,11 @@ pubg-bluezone-predictor
 
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
 
+### tips
+本ツールも API Key は複数登録可能です。
+[PUBG Developer Portal](https://developer.pubg.com/)のアカウント１つで最大5つまで API Key を発行することが出来ます。
+5つ発行して登録することをお勧めします。
+
 #### 試合検索ページの使い方
 [試合検索ページ](https://kagijpn.github.io/pubg-bluezone-predictor/players/)に飛ぶとこの様な画面が出てきます。
 ![search-page](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
