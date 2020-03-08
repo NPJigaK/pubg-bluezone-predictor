@@ -6,6 +6,10 @@ pubg-bluezone-predictor
 [こちら](https://kagijpn.github.io/pubg-bluezone-predictor/top/)
 から本ツールを利用することが出来ます。
 
+利用推奨環境
+Google chrome
+※ **AdBlock** 系をブラウザに導入していると、正常に動作しません。
+
 また、初めてお使いの方は下記の[利用方法](#利用方法)をご一読ください。
 
 ## 利用方法
@@ -46,6 +50,11 @@ pubg-bluezone-predictor
  最終的に、下記のようなページにいくので、**API KEY** と書かれているところの文字列をコピーしておいてください。 
 
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
+
+### tips
+本ツールも API Key は複数登録可能です。
+[PUBG Developer Portal](https://developer.pubg.com/)のアカウント１つで最大5つまで API Key を発行することが出来ます。
+5つ発行して登録することをお勧めします。
 
 #### 試合検索ページの使い方
 [試合検索ページ](https://kagijpn.github.io/pubg-bluezone-predictor/players/)に飛ぶとこの様な画面が出てきます。
