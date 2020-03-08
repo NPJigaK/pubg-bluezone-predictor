@@ -150,15 +150,7 @@ function calcWithinRange(num, upper, lower) {
 
 /*table
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-async function insertRow(
-  table,
-  currentTime,
-  mapName,
-  gameMode,
-  rank,
-  kills,
-  telemetryURL
-) {
+async function insertRow(table, currentTime, mapName, gameMode, rank, kills, telemetryURL) {
   // Insert row at end of line
   let row = table.insertRow(-1);
 

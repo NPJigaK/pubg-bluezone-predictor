@@ -3,7 +3,7 @@ pubg-bulezone-predictor
 
 本ツールは PLAYERUNKNOWN'S BATTLEGROUNDS の安置予測を練習することを目的として作られた、PC向けWebアプリケーションです。
 
-[こちら](https://kagijpn.github.io/pubg-bulezone-predictor/top.html)
+[こちら](https://kagijpn.github.io/pubg-bulezone-predictor/top/)
 から本ツールを利用することが出来ます。
 
 また、初めてお使いの方は下記の[利用方法](#利用方法)をご一読ください。
@@ -22,7 +22,7 @@ pubg-bulezone-predictor
 
 そのリンクにカーソルを合わせて右クリックをして、名前を付けて保存をして頂くと　_〇〇.json_　という形式でファイルを保存することができます。
 
-その json ファイルを[トップページ](https://kagijpn.github.io/pubg-bulezone-predictor/top.html)で読み込ませることで、ツールを利用することが出来ます。
+その json ファイルを[トップページ](https://kagijpn.github.io/pubg-bulezone-predictor/top/)で読み込ませることで、ツールを利用することが出来ます。
 
 安置読み練習ツールの利用方法は[こちら](#安置読み練習ツールの利用方法)でご確認ください。
 
@@ -33,7 +33,7 @@ pubg-bulezone-predictor
 大きく分けて3つの手順を踏む必要があります。
 
 1. [PUBG Developer Portal](https://developer.pubg.com/)で _API Key_ を発行する。詳細は[こちら](#APIKeyの発行方法)
-2. [試合検索ページ](https://kagijpn.github.io/pubg-bulezone-predictor/bule-zone-predictor-core/app/html/players.html)にて、_API Key_ 、 _Platform_ 、_PUBG NAME_ を入力して、自身がプレイした試合一覧を表示する。詳細は[こちら](#試合検索ページの使い方)
+2. [試合検索ページ](https://kagijpn.github.io/pubg-bulezone-predictor/players/)にて、_API Key_ 、 _Platform_ 、_PUBG NAME_ を入力して、自身がプレイした試合一覧を表示する。詳細は[こちら](#試合検索ページの使い方)
 3. 試合一覧ページで表示されるデータをコピーして、json ファイルを作成する。詳細は[こちら](#試合一覧ページの使い方)
 
 #### APIKEYの発行方法
@@ -46,7 +46,7 @@ pubg-bulezone-predictor
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
 
 #### 試合検索ページの使い方
-[試合検索ページ](https://kagijpn.github.io/pubg-bulezone-predictor/bule-zone-predictor-core/app/html/players.html)に飛ぶとこの様な画面が出てきます。
+[試合検索ページ](https://kagijpn.github.io/pubg-bulezone-predictor/players/)に飛ぶとこの様な画面が出てきます。
 ![search-page](https://raw.githubusercontent.com/KagiJPN/pubg-bulezone-predictor/master/docs/resource/img/search-page.JPG)
 
 - API KEY というところに、先ほどコピーしておいた文字列をペーストして、右側の**ADD**ボタンを押下してください。
