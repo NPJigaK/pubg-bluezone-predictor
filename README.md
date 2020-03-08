@@ -8,6 +8,7 @@ pubg-bluezone-predictor
 
 利用推奨環境
 Google chrome
+
 ※ **AdBlock** 系をブラウザに導入していると、正常に動作しません。
 
 また、初めてお使いの方は下記の[利用方法](#利用方法)をご一読ください。
