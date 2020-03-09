@@ -74,6 +74,12 @@ async function clickMatchLoading(trObj) {
   initScoreBoard(JSON.parse(tr.cells[4].innerHTML));
 
   startPredictor(JSON.parse(tr.cells[4].innerHTML));
+
+  // Coloring selected match
+  [].forEach.call(document.getElementsByClassName('selectedMatch'), function(elem) {
+	    elem.classList.remove('selectedMatch');
+  })
+  tr.classList.add("selectedMatch");
 }
 
 async function drawMap(mapName) {
