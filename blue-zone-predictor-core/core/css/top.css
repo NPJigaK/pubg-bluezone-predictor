@@ -193,3 +193,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.selectedMatch {
+  background-color:  rgba(55, 215, 255, 0.199);
+}

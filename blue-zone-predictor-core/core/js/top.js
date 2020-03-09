@@ -68,8 +68,6 @@ function insertRow(createdAt, mapName, matchType, flightPath, gameStates) {
   let cell3 = row.insertCell(-1);
   let cell4 = row.insertCell(-1);
   let cell5 = row.insertCell(-1);
-  cell4.style.display = "none";
-  cell5.style.display = "none";
 
   // add class for List.js
   cell1.classList.add("createdAt");
@@ -82,6 +80,9 @@ function insertRow(createdAt, mapName, matchType, flightPath, gameStates) {
   cell3.innerHTML = matchType;
   cell4.innerHTML = JSON.stringify(flightPath);
   cell5.innerHTML = JSON.stringify(gameStates);
+
+  cell4.style.display = "none";
+  cell5.style.display = "none";
 }
 
 async function removeAllMatches() {
