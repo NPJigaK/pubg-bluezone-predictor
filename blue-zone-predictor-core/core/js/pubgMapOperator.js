@@ -81,7 +81,7 @@ async function drawMap(mapName) {
 
   let map = new Konva.Image({
     image: await syncGetImage(
-      `blue-zone-predictor-core/core/resource/maps/${mapName}.jpg`
+      `../blue-zone-predictor-core/core/resource/maps/${mapName}.jpg`
     )
   });
 
