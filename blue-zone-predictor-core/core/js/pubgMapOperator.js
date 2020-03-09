@@ -1,3 +1,4 @@
+// ToDO https://github.com/KagiJPN/pubg-bluezone-predictor/issues/10
 let stage;
 let mapLayer;
 let mainLayer;
@@ -14,6 +15,7 @@ async function initKonvaObject() {
     }
   });
 
+  // zoom function
   var scaleBy = 1.4;
   stage.on("wheel", e => {
     e.evt.preventDefault();
@@ -40,8 +42,25 @@ async function initKonvaObject() {
     stage.batchDraw();
   });
 
+  // press key function
+  var container = stage.container();
+  // make it focusable
+  container.tabIndex = 1;
+  // focus it
+  // also stage will be in focus on its click
+  container.focus();
+  container.addEventListener('keydown', function(e) {
+    e.preventDefault();
+    // console.log(`press a ${e.keyCode} key`)
+    // press a space key
+    if (e.keyCode === 32) {
+      clickPredictionButton();
+    } else {
+      return;
+    }
+  });
+  
   this.stage = stage;
-
   this.mapLayer = new Konva.Layer();
   this.mainLayer = new Konva.Layer();
 
