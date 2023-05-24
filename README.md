@@ -41,7 +41,7 @@ There are three main steps involved:
 
 1. Obtain an API Key from the [PUBG Developer Portal](https://developer.pubg.com/). Details are provided [here](#obtaining-an-api-key).
 2. On the [Match Search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), enter your API Key, Platform, and PUBG Name to display a list of matches you played. Details are provided [here](#using-the-match-search-page).
-3. Copy the data displayed on the match list page and create a JSON file. Details are provided [here](#using-the-match-list-page).
+3. Copy the data displayed on the match list page and create a JSON file. Details are provided [here](#how-to-use-the-match-list-page).
 
 #### Obtaining an API Key
 
