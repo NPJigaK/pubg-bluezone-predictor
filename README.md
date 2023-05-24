@@ -1,173 +1,133 @@
 pubg-bluezone-predictor
 ====
 
-本ツールは PLAYERUNKNOWN'S BATTLEGROUNDS の安置予測を練習することを目的として作られた、PC向けWebアプリケーションです。
+pubg-bluezone-predictor is a web application designed for practicing circle predictions in PLAYERUNKNOWN'S BATTLEGROUNDS (PUBG) on PC.
 
-[こちら](https://kagijpn.github.io/pubg-bluezone-predictor/top/)
-から本ツールを利用することが出来ます。
+You can access the tool [here](https://kagijpn.github.io/pubg-bluezone-predictor/top/).
 
-利用推奨環境
-Google chrome
+Recommended Environment
+Google Chrome
 
-※ **AdBlock** 系をブラウザに導入していると、正常に動作しません。
+Note: If you have any AdBlock extensions installed in your browser, it may interfere with the proper functioning of the tool.
 
-また、初めてお使いの方は下記の[利用方法](#利用方法)をご一読ください。
+If you are a first-time user, please read the following instructions on how to use the tool.
 
-## 利用方法
+## How to Use
 
-本ツールは**あらかじめ用意されている試合データを使って利用する**ことも可能ですが、**自分自身で練習用の試合データを作る**ことも可能です。
+You have two options for using this tool: either utilizing the pre-prepared match data or creating your own practice match data.
 
-- [あらかじめ用意されている試合データを使う](#あらかじめ用意されている試合データを使って利用する場合)
-- [自分自身で練習用の試合データを作る](#自分自身で練習用の試合データを作る場合)
+- [Using Pre-prepared Match Data](#using-pre-prepared-match-data)
+- [Creating Your Own Practice Match Data](#creating-your-own-practice-match-data)
 
-### あらかじめ用意されている試合データを使って利用する場合
-本ツールであらかじめ用意している試合データはいくつかあります。
+### Using Pre-prepared Match Data
 
-[こちら](https://github.com/KagiJPN/pubg-bluezone-predictor/tree/master/blue-zone-predictor-core/app/resource)のページに飛ぶと、_〇〇.json_ をいう名前のリンクがあると思います。
+Several pre-prepared match data files are available for this tool.
 
-そのリンクを押下すると少し下のほうに試合データが表示され、**Raw**, **Blame**, **History** とボタンが並んでいると思います。
+You can visit [this page](https://github.com/KagiJPN/pubg-bluezone-predictor/tree/master/blue-zone-predictor-core/app/resource), where you will find links named "_〇〇.json_".
 
-その内の**Raw**にカーソルを合わせて右クリックをして、名前を付けて保存をして頂くと　_〇〇.json_　という形式でファイルを保存することができます。
+Clicking on one of those links will display the match data slightly below, along with buttons labeled **Raw**, **Blame**, and **History**.
 
-その json ファイルを[トップページ](https://kagijpn.github.io/pubg-bluezone-predictor/top/)で読み込ませることで、ツールを利用することが出来ます。
+Hover your cursor over **Raw**, right-click, choose "Save As," and save the file with the format "_〇〇.json_".
 
-安置読み練習ツールの利用方法は[こちら](#安置読み練習ツールの利用方法)でご確認ください。
+After saving the JSON file, you can load it on the [top page](https://kagijpn.github.io/pubg-bluezone-predictor/top/) to use the tool.
 
-### 自分自身で練習用の試合データを作る場合
+Please refer to the instructions for using the circle prediction practice tool [here](#instructions-for-using-the-circle-prediction-practice-tool).
 
-本ツールでは、自分自身で試合データを作る事が可能です。
+### Creating Your Own Practice Match Data
 
-大きく分けて3つの手順を踏む必要があります。
+In this tool, you have the option to create your own match data.
 
-1. [PUBG Developer Portal](https://developer.pubg.com/)で _API Key_ を発行する。詳細は[こちら](#APIKeyの発行方法)
-2. [試合検索ページ](https://kagijpn.github.io/pubg-bluezone-predictor/players/)にて、_API Key_ 、 _Platform_ 、_PUBG NAME_ を入力して、自身がプレイした試合一覧を表示する。詳細は[こちら](#試合検索ページの使い方)
-3. 試合一覧ページで表示されるデータをコピーして、json ファイルを作成する。詳細は[こちら](#試合一覧ページの使い方)
+There are three main steps involved:
 
-#### APIKEYの発行方法
-[PUBG Developer Portal](https://developer.pubg.com/)で API Key を取得します。
+1. Obtain an API Key from the [PUBG Developer Portal](https://developer.pubg.com/). Details are provided [here](#obtaining-an-api-key).
+2. On the [Match Search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), enter your API Key, Platform, and PUBG Name to display a list of matches you played. Details are provided [here](#using-the-match-search-page).
+3. Copy the data displayed on the match list page and create a JSON file. Details are provided [here](#using-the-match-list-page).
 
- **GET YOUR OWN API KEY**というところを押して、言われた通りに進めていき、会員登録(無料)をします。(英語のサイトですが、そこまで難しい操作はありません)
- 
- 最終的に、下記のようなページにいくので、**API KEY** と書かれているところの文字列をコピーしておいてください。 
+#### Obtaining an API Key
+
+To obtain an API Key, visit the [PUBG Developer Portal](https://developer.pubg.com/).
+
+Click on **GET YOUR OWN API KEY** and follow the instructions to register for a free account (the website is in English, but the process is not too complicated).
+
+Eventually, you will reach a page similar to the screenshot below. Copy the string of characters labeled **API KEY**.
 
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
 
-### tips
-本ツールも API Key は複数登録可能です。
-[PUBG Developer Portal](https://developer.pubg.com/)のアカウント１つで最大5つまで API Key を発行することが出来ます。
-5つ発行して登録することをお勧めします。
+### Tips
 
-#### 試合検索ページの使い方
-[試合検索ページ](https://kagijpn.github.io/pubg-bluezone-predictor/players/)に飛ぶとこの様な画面が出てきます。
-![search-page](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
+You can register multiple API Keys for this tool. With one account on the [PUBG Developer Portal](https://developer.pubg.com/), you can generate up to 5 API Keys. We recommend generating and registering 5 API Keys.
 
-- API KEY というところに、先ほどコピーしておいた文字列をペーストして、右側の**ADD**ボタンを押下してください。
-- 正常に追加されると、画像のように追加した API KEY が表示されます。
-- 後は、プラットフォームと検索を掛けたい PUBG NAME を入力して、右側の**SEARCH**を押下してください。
+#### Using the Match Search Page
 
-押下したら、[試合一覧ページ](#試合一覧ページの使い方)に遷移します。
+When you visit the [Match Search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), you will see a screen like the one below:
 
-#### 試合一覧ページの使い方
-正常な値で遷移されたら、このような画面に飛びます。
+![search-page](https://raw.githubusercontent.com/K
+
+agiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
+
+- Paste the API Key you copied earlier into the "API KEY" field and click the **ADD** button on the right side.
+- Once added successfully, the API Key you entered will be displayed, as shown in the image.
+- Next, enter the Platform and PUBG Name for which you want to search, and click **SEARCH** on the right side.
+
+You will be redirected to the [Match List page](#using-the-match-list-page) after clicking.
+
+#### Using the Match List Page
+
+Upon successful redirection, you will arrive at a page like the one shown below:
+
 ![matches-page](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/matches-page.JPG)
 
-ここでは、実際に試合データを作るページとなります。
+This is where you can create the actual match data.
 
-追加したい試合の右側の**ADD**ボタンを押下してください。押下すると、右側のテキストエリアに試合データが追加されていきます。
+Click the **ADD** button on the right side of the matches you want to add. The match data will be appended to the text area on the right.
 
-追加したい試合をすべてADDし終わったら、テキストエリアをクリックしてください。
-自動的にコピーされた状態になります。
 
-そうしたら試合データの整形に入ります。
+1. Open a text editor, such as Notepad or any editor that can format JSON.
+2. Start by adding `[]` to create an empty array.
+3. Paste the copied match data inside the `[]`.
+4. Remove the last comma `,` from the pasted match data.
+5. Save the file with a `.json` extension, ensuring it is properly formatted as shown below:
 
-- まずはメモ帳などのテキストを編集できるエディタを開いてください。(jsonをフォーマットできるエディタだと便利)
-- まず初めに、```[]```を記入してください。
-- ```[]``` を記入したら、その中にコピーされた試合データをペーストしてください。
-- 最後に、ペーストされた試合データの一番最後の , (カンマ)を削除してください。
-- 最終的に下記のような形になったら保存してください。保存したファイルは拡張子が ```.json``` になるようにファイル名を保存・編集してください。
-```
+```json
 [
-    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}]}
+    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625},
+    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625},
+    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625},
+    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625},
+    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625},
+    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}
 ]
 ```
 
-##### tips
-json データですが、生成されたものを足し合わせて一つのファイルにすることも可能です。
-その場合は
+Note: You can combine multiple sets of match data into a single file by appending them together.
 
-```
-[
-    {"createdAt":"1/17 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"1/16 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"1/15 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"1/14 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"1/13 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"1/12 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}]}
-]
-```
-のような形になるように、自身で整形を行ってください。
+### Using the Bluezone Predictor Tool
 
-つまり、一度データを保存しておけば、月日が経つににつれて、どんどん試合データが増えていくということになります。もちろん、期間やマップによってファイルを分けるというこうとも出来ます。
-
-※一番最後に **,** (カンマ)があると json として正しい形式ならないので注意してください。
-
-安置読み練習ツールの利用方法は[こちら](#安置読み練習ツールの利用方法)でご確認ください。
-
-## 安置読み練習ツールの利用方法
-
-1. まず始めに、試合データの読み込みを行います。
-
-**LOAD**を押すとファイルを選択することが出来ます。json 形式の試合データを読み込んでください。
-
-2. 試合一覧から安置読みをしたいマッチを選択します。
-
-下記の画像のように、左側に試合一覧が表示されます。
-緑色のリンクを押すと、右側にマップが表示されます。
+1. Click **LOAD** to select and load the JSON file containing the match data.
+2. Choose a match from the match list on the left side.
+3. The selected match's map will be displayed on the right side.
+4. Practice predicting the next safe zone by clicking and dragging the red circle to the desired location.
+5. Press the **⇒** arrow or the **space key** to compare your prediction with the actual safe zone.
+6. The **Current** value displays the percentage of overlap between your prediction and the actual safe zone for the selected match.
+7. The **Total** value shows the average overlap percentage for all matches.
+8. After pressing the **⇒** arrow or the **space key**, the actual safe zone (displayed as a white circle) will be shown.
+9. Repeat steps 4 to 8 for other matches by selecting them from the match list.
 
 ![pubg-predictor1](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-predictor1.JPG)
 
-3. 安置予測の練習をする。
+### Additional Tips
 
-最初に表示される赤い円をクリックして、ドラッグ&ドロップをすると、円を動かすことが出来ます。「次の安置はここだ」って思ったところに赤い円を配置したら、画面上側の**矢印(⇒)** か **spaceキー** を押下してください。
+- You can switch to a different match without completing the prediction for the current match.
+- Clicking the **Date** or **Map** headers in the match list allows you to sort the matches in ascending or descending order.
 
-画面上に表示されている表の **Current** は現在選択している試合の予測と実際の円の一致した割合が表示されます。
+## Contact
 
- **Total** は各試合の予測と実際の円の一致した割合の平均が表示されます。
+If you have any questions or need assistance, feel free to reach out to me on [Twitter](https://twitter.com/KagiJPN). I welcome any feedback, suggestions, or bug reports that can help improve this tool.
 
- **矢印(⇒)** か **spaceキー** を押下後に実際の円が表示されます(白色)
- 
- 最後のフェーズまでいったら、赤い円(予測円)は表示されなくなります。
- そうしたら次の試合(緑色のリンク)を選択してください。
+You can also check the [Issues](https://github.com/KagiJPN/pubg-bluezone-predictor/issues) section to stay updated on future updates and fixes.
 
-![pubg-predictor2](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-predictor2.JPG)
+This tool is developed using pure technologies, without any external dependencies, and hosted on GitHub Pages.
 
-### tips
-- 最終安置までやらなくても、別の試合に切り替えることは可能です。
-- 左側のリストの **Date** や **Map** をクリックすると、昇順・降順に並べ替えることが出来ます。
+I hope you find this tool useful for
 
-## さいごに
-分かりづらい説明も多々あると思います。
-なにか分からないことがありましたら、私の[ディスコードサーバー](https://discord.gg/tQp8NEN)までお気軽にご連絡ください！
-
-改善案や提案なども[ディスコードサーバー](https://discord.gg/tQp8NEN)にて、随時受け付けております。
-より良いツールにアップデートするためにも、ぜひともご協力のほどよろしくお願い申し上げます。
-
-ちなみに、[こちら](https://github.com/KagiJPN/pubg-bluezone-predictor/issues)に今後の アップデート・修正情報 をまとめています。
-アップデートした内容や最新情報は、[ディスコードサーバー](https://discord.gg/tQp8NEN) にて通知していきます。
-
-最後に、Web開発の協力者も募集してます！
-私はWeb開発は趣味でしか行ったことが無いので、あまり得意ではありません。もし興味ある方がいたら是非一緒になにか作りましょう！
-
-本ツールは、Github Pages を使い、外部依存のフレームワークも使っていないため pure で 
-ecology で fabulous なものとなっています。
+ practicing your PUBG safe zone predictions!
