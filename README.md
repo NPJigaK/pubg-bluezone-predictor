@@ -69,7 +69,7 @@ agiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
 - Once added successfully, the API Key you entered will be displayed, as shown in the image.
 - Next, enter the Platform and PUBG Name for which you want to search, and click **SEARCH** on the right side.
 
-You will be redirected to the [Match List page](#using-the-match-list-page) after clicking.
+You will be redirected to the [Match List page](#how-to-use-the-match-list-page) after clicking.
 
 ### How to Use the Match List Page
 
