@@ -71,9 +71,9 @@ agiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
 
 You will be redirected to the [Match List page](#using-the-match-list-page) after clicking.
 
-#### Using the Match List Page
+### How to Use the Match List Page
 
-Upon successful redirection, you will arrive at a page like the one shown below:
+Once you have successfully navigated to the page with valid values, you will see a screen similar to the following:
 
 ![matches-page](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/matches-page.JPG)
 
