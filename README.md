@@ -1,133 +1,155 @@
-pubg-bluezone-predictor
-====
+# pubg-bluezone-predictor
+※ 日本の方向けのドキュメントは[こちら](https://github.com/KagiJPN/pubg-bluezone-predictor/blob/master/README_JP.md)！
 
-pubg-bluezone-predictor is a web application designed for practicing circle predictions in PLAYERUNKNOWN'S BATTLEGROUNDS (PUBG) on PC.
+The PUBG Bluezone Predictor is a web application, optimized for PCs, that aids players in mastering zone prediction in PLAYERUNKNOWN'S BATTLEGROUNDS. 
 
-You can access the tool [here](https://kagijpn.github.io/pubg-bluezone-predictor/top/).
+Access the tool [here](https://kagijpn.github.io/pubg-bluezone-predictor/top/).
 
-Recommended Environment
-Google Chrome
+Google Chrome is the recommended browser for optimal performance. Please note that certain browser extensions such as AdBlock might hinder the tool's functionality.
 
-Note: If you have any AdBlock extensions installed in your browser, it may interfere with the proper functioning of the tool.
+If you're a first-time user, please make sure to read the instructions in the [Usage](#usage) section.
 
-If you are a first-time user, please read the following instructions on how to use the tool.
+## Usage
+The tool offers you the option to utilize pre-existing match data or generate your own practice match data.
 
-## How to Use
+- [Using pre-existing match data](#using-pre-existing-match-data)
+- [Creating your own practice match data](#creating-your-own-practice-match-data)
 
-You have two options for using this tool: either utilizing the pre-prepared match data or creating your own practice match data.
+### Using pre-existing match data
+Several pre-existing match data sets are available in this tool.
 
-- [Using Pre-prepared Match Data](#using-pre-prepared-match-data)
-- [Creating Your Own Practice Match Data](#creating-your-own-practice-match-data)
+You can find links named _〇〇.json_ on [this page](https://github.com/KagiJPN/pubg-bluezone-predictor/tree/master/blue-zone-predictor-core/app/resource).
 
-### Using Pre-prepared Match Data
+Clicking on one of these links will display the match data further down the page, along with **Raw**, **Blame**, and **History** buttons.
 
-Several pre-prepared match data files are available for this tool.
+Hover your cursor over **Raw**, right-click, and select "Save As" to save the file as _〇〇.json_.
 
-You can visit [this page](https://github.com/KagiJPN/pubg-bluezone-predictor/tree/master/blue-zone-predictor-core/app/resource), where you will find links named "_〇〇.json_".
+Loading this JSON file on the [top page](https://kagijpn.github.io/pubg-bluezone-predictor/top/) will allow you to use the tool.
 
-Clicking on one of those links will display the match data slightly below, along with buttons labeled **Raw**, **Blame**, and **History**.
+Refer to the [Zone Prediction Practice Tool Usage](#zone-prediction-practice-tool-usage) section for instructions on how to use the tool.
 
-Hover your cursor over **Raw**, right-click, choose "Save As," and save the file with the format "_〇〇.json_".
+### Creating your own practice match data
 
-After saving the JSON file, you can load it on the [top page](https://kagijpn.github.io/pubg-bluezone-predictor/top/) to use the tool.
+This tool also lets you create your own match data.
 
-Please refer to the instructions for using the circle prediction practice tool [here](#instructions-for-using-the-circle-prediction-practice-tool).
+The process involves three main steps:
 
-### Creating Your Own Practice Match Data
+1. Acquire an _API Key_ from the [PUBG Developer Portal](https://developer.pubg.com/). More details can be found [here](#api-key-generation-method).
+2. Use the _API Key_, _Platform_, and _PUBG NAME_ on the [match search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/) to display a list of matches you've played. Detailed instructions are provided [here](#instructions-for-the-match-search-page).
+3. Copy the data displayed on the match list page and create a JSON file. Detailed instructions are provided [here](#instructions-for-the-match-list-page).
 
-In this tool, you have the option to create your own match data.
+#### API Key Generation Method
+You can obtain an API Key from the [PUBG Developer Portal](https://developer.pubg.com/).
 
-There are three main steps involved:
+Click on **GET YOUR OWN API KEY** and follow the instructions on the subsequent pages to sign up (free registration). 
 
-1. Obtain an API Key from the [PUBG Developer Portal](https://developer.pubg.com/). Details are provided [here](#obtaining-an-api-key).
-2. On the [Match Search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), enter your API Key, Platform, and PUBG Name to display a list of matches you played. Details are provided [here](#using-the-match-search-page).
-3. Copy the data displayed on the match list page and create a JSON file. Details are provided [here](#how-to-use-the-match-list-page).
-
-#### Obtaining an API Key
-
-To obtain an API Key, visit the [PUBG Developer Portal](https://developer.pubg.com/).
-
-Click on **GET YOUR OWN API KEY** and follow the instructions to register for a free account (the website is in English, but the process is not too complicated).
-
-Eventually, you will reach a page similar to the screenshot below. Copy the string of characters labeled **API KEY**.
+Once completed, you'll be directed to a page that looks like the one shown below. Please copy the string labeled as **API KEY**.
 
 ![pubg-apikey](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-apikey.JPG)
 
 ### Tips
+This tool allows registration of multiple API Keys. A single account on the [PUBG Developer Portal](https://developer.pubg.com/) can generate up to five API Keys. It is advisable to generate and register all five keys.
 
-You can register multiple API Keys for this tool. With one account on the [PUBG Developer Portal](https://developer.pubg.com/), you can generate up to 5 API Keys. We recommend generating and registering 5 API Keys.
+#### Instructions for the Match Search Page
+Upon accessing the [match search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), you'll be greeted with a screen resembling the one below.
 
-#### Using the Match Search Page
+![search-page](https://raw.githubusercontent.com/KagiJPN/pub
 
-When you visit the [Match Search page](https://kagijpn.github.io/pubg-bluezone-predictor/players/), you will see a screen like the one below:
+g-bluezone-predictor/master/docs/resource/img/search-page.JPG)
 
-![search-page](https://raw.githubusercontent.com/K
+- Paste the previously copied API Key into the "API KEY" field and click the **ADD** button on the right side.
+- If the API Key is added successfully, it will be displayed as shown in the image.
+- Input the desired Platform and PUBG NAME for the search and click the **SEARCH** button on the right side.
 
-agiJPN/pubg-bluezone-predictor/master/docs/resource/img/search-page.JPG)
+Upon clicking, you'll be redirected to the [match list page](#instructions-for-the-match-list-page).
 
-- Paste the API Key you copied earlier into the "API KEY" field and click the **ADD** button on the right side.
-- Once added successfully, the API Key you entered will be displayed, as shown in the image.
-- Next, enter the Platform and PUBG Name for which you want to search, and click **SEARCH** on the right side.
-
-You will be redirected to the [Match List page](#how-to-use-the-match-list-page) after clicking.
-
-### How to Use the Match List Page
-
-Once you have successfully navigated to the page with valid values, you will see a screen similar to the following:
+#### Instructions for the Match List Page
+After entering the necessary information on the match search page, you'll see a screen similar to the one below.
 
 ![matches-page](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/matches-page.JPG)
 
-This is where you can create the actual match data.
+This page is where you can create your match data.
 
-Click the **ADD** button on the right side of the matches you want to add. The match data will be appended to the text area on the right.
+Click the **ADD** button on the right side of the match you wish to include. The match data will be appended to the text area on the right.
 
+Once you've added all the matches you desire, click inside the text area. The data will be automatically copied.
 
-1. Open a text editor, such as Notepad or any editor that can format JSON.
-2. Start by adding `[]` to create an empty array.
-3. Paste the copied match data inside the `[]`.
-4. Remove the last comma `,` from the pasted match data.
-5. Save the file with a `.json` extension, ensuring it is properly formatted as shown below:
+Proceed with the following steps to format the match data:
 
-```json
+- Open a text editor such as Notepad that allows text editing (preferably one that can format JSON).
+- Begin by typing `[]`.
+- After entering `[]`, paste the copied match data inside.
+- Lastly, remove the final `,` (comma) from the pasted match data.
+- When completed, save the file with a `.json` extension. Make sure the file name ends with `.json`.
+
+The final file should follow this format:
+
+```
 [
-    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625},
-    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625},
-    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625},
-    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625},
-    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625},
-    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}
+    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}]}
 ]
 ```
 
-Note: You can combine multiple sets of match data into a single file by appending them together.
+##### Tips
+Even though it is JSON data, you can merge multiple generated files into one. In that case, the format should be:
 
-### Using the Bluezone Predictor Tool
+```
+[
+    {"createdAt":"1/17 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"1/16 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"1/15 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"1/14 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"1/13 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"1/12 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625}]},
+    {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}]}
+]
+```
 
-1. Click **LOAD** to select and load the JSON file containing the match data.
-2. Choose a match from the match list on the left side.
-3. The selected match's map will be displayed on the right side.
-4. Practice predicting the next safe zone by clicking and dragging the red circle to the desired location.
-5. Press the **⇒** arrow or the **space key** to compare your prediction with the actual safe zone.
-6. The **Current** value displays the percentage of overlap between your prediction and the actual safe zone for the selected match.
-7. The **Total** value shows the average overlap percentage for all matches.
-8. After pressing the **⇒** arrow or the **space key**, the actual safe zone (displayed as a white circle) will be shown.
-9. Repeat steps 4 to 8 for other matches by selecting them from the match list.
+Please manually format the data as necessary to achieve this structure. Save and edit the file with a `.json` extension.
+
+Refer to the instructions in the section [Zone Prediction Practice Tool Usage](#zone-prediction-practice-tool-usage) for using the tool.
+
+## Zone Prediction Practice Tool Usage
+
+1. To start, load the match data.
+
+Click **LOAD** to select a file. Choose a JSON file that contains match data.
+
+2. Select a match for zone prediction from the match list.
+
+As depicted in the image below, the match list is displayed on the left side, and when you click on the green link, the map will be displayed on the right.
 
 ![pubg-predictor1](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-predictor1.JPG)
 
-### Additional Tips
+3. Practice zone prediction.
 
-- You can switch to a different match without completing the prediction for the current match.
-- Clicking the **Date** or **Map** headers in the match list allows you to sort the matches in ascending or descending order.
+Click and drag the initially displayed red circle to move it. Position the red circle where you predict the next zone will be, then press the **Right Arrow (⇒)** or the **space key** on your keyboard.
 
-## Contact
+The **Current** value on the screen shows the percentage of accurate predictions for the selected match. It compares the predicted zone with the actual zone.
 
-If you have any questions or need assistance, feel free to reach out to me on [Twitter](https://twitter.com/KagiJPN). I welcome any feedback, suggestions, or bug reports that can help improve this tool.
+The **Total** value displays the average percentage of accurate predictions for all matches.
 
-You can also check the [Issues](https://github.com/KagiJPN/pubg-bluezone-predictor/issues) section to stay updated on future updates and fixes.
+Upon pressing the **Right Arrow (⇒)** or **space key**, the actual zone will appear as a white circle.
 
-This tool is developed using pure technologies, without any external dependencies, and hosted on GitHub Pages.
+Once you reach the final phase, the red circle (predicted zone) will no longer appear. At this point, select the next match (green link).
 
-I hope you find this tool useful for
+![pubg-predictor2](https://raw.githubusercontent.com/KagiJPN/pubg-bluezone-predictor/master/docs/resource/img/pubg-predictor2.JPG)
 
- practicing your PUBG safe zone predictions!
+### Tips
+- You can switch to other matches even before reaching the final zone.
+- Clicking on the **Date** or **Map** in the left list will sort them in ascending or descending order.
+
+## Contributing
+The instructions might seem a bit complicated. If you have any questions or need help, please contact me via [my Twitter](https://twitter.com/KagiJPN)!
+
+I welcome suggestions and improvement proposals. No matter how small or trivial, please feel free to share your thoughts. I will consider and incorporate them to make the tool more effective and user-friendly. Your cooperation is greatly appreciated!
