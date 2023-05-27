@@ -153,3 +153,6 @@ Once you reach the final phase, the red circle (predicted zone) will no longer a
 The instructions might seem a bit complicated. If you have any questions or need help, please contact me via [my Twitter](https://twitter.com/KagiJPN)!
 
 I welcome suggestions and improvement proposals. No matter how small or trivial, please feel free to share your thoughts. I will consider and incorporate them to make the tool more effective and user-friendly. Your cooperation is greatly appreciated!
+
+## License
+This content is released under the [Apache License 2.0](https://github.com/KagiJPN/pubg-bluezone-predictor/blob/master/LICENSE). 
