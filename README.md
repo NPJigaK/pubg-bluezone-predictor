@@ -1,4 +1,4 @@
-# PUBG Bluezone Predictor
+# pubg-bluezone-predictor
 ※ 日本の方向けのドキュメントは[こちら](https://github.com/KagiJPN/pubg-bluezone-predictor/blob/master/README_JP.md)！
 
 The PUBG Bluezone Predictor is a web application, optimized for PCs, that aids players in mastering zone prediction in PLAYERUNKNOWN'S BATTLEGROUNDS. 
