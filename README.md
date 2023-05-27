@@ -108,11 +108,7 @@ Even though it is JSON data, you can merge multiple generated files into one. In
     {"createdAt":"2/17 20:48" ~~~ "radius":126.09056640625}]},
     {"createdAt":"2/16 20:48" ~~~ "radius":126.09056640625}]},
     {"createdAt":"2/15 20:48" ~~~ "radius":126.09056640625}]},
-    {"createdAt":"2/14 20:48" ~~~ "radius":126.
-
-09056640625
-
-}]},
+    {"createdAt":"2/14 20:48" ~~~ "radius":126.09056640625}]},
     {"createdAt":"2/13 20:48" ~~~ "radius":126.09056640625}]},
     {"createdAt":"2/12 20:48" ~~~ "radius":126.09056640625}]}
 ]
